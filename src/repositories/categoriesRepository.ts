@@ -1,11 +1,8 @@
 import { Category } from "../model/category"
+import { ICategoryRepository } from "./IcategoriesRepository";
+import { ICreateCategoryDTO } from "./IcategoriesRepository";
 
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-};
-
-class CategoriesRepository {
+class CategoriesRepository implements ICategoryRepository {
   private categories: Category[];
   
   constructor() {
@@ -23,7 +20,7 @@ class CategoriesRepository {
 
   this.categories.push(category);
   };
-  list(): Category[] {
+  list(): Category [] {
     return this.categories;
   };
 
