@@ -1,14 +1,15 @@
-import { Category } from "../../model/category";
-import { ICategoryRepository } from "../../repositories/IcategoriesRepository";
-
+/* eslint-disable no-useless-constructor */
+import { Category } from '../../model/category'
+import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
 
 class ListCategoriesUseCase {
-  constructor(private categoriesRepository: ICategoryRepository) {};
-  
+  // eslint-disable-next-line prettier/prettier
+  constructor(private categoriesRepository: ICategoryRepository) { }
+
   execute(): Category[] {
-    const categories = this.categoriesRepository.list();
+    const categories = this.categoriesRepository.list()
     return categories
-  };
+  }
 }
 
-export { ListCategoriesUseCase }  
+export { ListCategoriesUseCase }

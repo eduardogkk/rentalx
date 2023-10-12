@@ -1,23 +1,24 @@
-import { ICategoryRepository } from "../../repositories/IcategoriesRepository";
+/* eslint-disable no-useless-constructor */
+import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
 
 interface IRequest {
-  name: string;
-  description: string;
+  name: string
+  description: string
 }
 
 class CreateCategoryUseCase {
+  // eslint-disable-next-line prettier/prettier
+  constructor(private categoriesRepository: ICategoryRepository) { }
 
-  constructor(private categoriesRepository: ICategoryRepository) {};
-  
-  execute({description, name}: IRequest): void {
-    const categoryAlreadyExist = this.categoriesRepository.findByName(name);
+  execute({ description, name }: IRequest): void {
+    const categoryAlreadyExist = this.categoriesRepository.findByName(name)
 
-  if (categoryAlreadyExist) {
-    throw new Error("Category already exist!")
-  };
+    if (categoryAlreadyExist) {
+      throw new Error('Category already exist!')
+    }
 
-  this.categoriesRepository.create({name, description})
-  };
-};
+    this.categoriesRepository.create({ name, description })
+  }
+}
 
 export { CreateCategoryUseCase }

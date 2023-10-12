@@ -1,11 +1,11 @@
-import { Router } from "express";
+import { Router } from 'express'
 
-import { categoriesRoutes } from "./categories.routes";
-import { specificationRoutes } from "./specificationRoutes";
+import { categoriesRoutes } from './categories.routes'
+import { specificationRoutes } from './specificationRoutes'
 
 const router = Router()
 
-router.use("/categories", categoriesRoutes);
-router.use("/specifications", specificationRoutes)
+router.use('/categories', categoriesRoutes)
+router.use('/specifications', specificationRoutes)
 
 export { router }

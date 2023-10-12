@@ -1,15 +1,15 @@
-import { Request, Response } from "express"
-import { ListCategoriesUseCase } from "./listCategoriesUseCase";
-
+/* eslint-disable no-useless-constructor */
+import { Request, Response } from 'express'
+import { ListCategoriesUseCase } from './listCategoriesUseCase'
 
 class ListCategoryController {
-
-  constructor(private listCategoriesUseCase: ListCategoriesUseCase){}
+  // eslint-disable-next-line prettier/prettier
+  constructor(private listCategoriesUseCase: ListCategoriesUseCase) { }
 
   handle(request: Request, response: Response): Response {
-    const all = this.listCategoriesUseCase.execute();
+    const all = this.listCategoriesUseCase.execute()
 
-    return response.json(all);
+    return response.json(all)
   }
 }
 
