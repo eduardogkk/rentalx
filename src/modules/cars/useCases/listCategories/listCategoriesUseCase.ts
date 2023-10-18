@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-constructor */
-import { Category } from '../../model/category'
+import { Category } from '../../entities/category'
 import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
 
 class ListCategoriesUseCase {
