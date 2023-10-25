@@ -1,17 +1,22 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-constructor */
 import fs from 'fs'
 import { parse as csvParse } from 'csv-parse'
 import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
+import { inject, injectable } from 'tsyringe'
 
 interface IImportCategory {
   name: string
   description: string
 }
 
+@injectable()
 class ImportCategoryUseCase {
-  // eslint-disable-next-line prettier/prettier
-  constructor(private categoriesRepository: ICategoryRepository) { }
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoryRepository,
+  ) { }
 
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
@@ -48,10 +53,10 @@ class ImportCategoryUseCase {
     categories.map(async (category) => {
       const { name, description } = category
 
-      const existCategory = this.categoriesRepository.findByName(name)
+      const existCategory = await this.categoriesRepository.findByName(name)
 
       if (!existCategory) {
-        this.categoriesRepository.create({
+        await this.categoriesRepository.create({
           name,
           description,
         })

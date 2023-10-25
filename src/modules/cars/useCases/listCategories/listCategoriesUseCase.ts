@@ -1,13 +1,18 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-useless-constructor */
 import { Category } from '../../entities/category'
 import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
+import { inject, injectable } from 'tsyringe'
 
+@injectable()
 class ListCategoriesUseCase {
-  // eslint-disable-next-line prettier/prettier
-  constructor(private categoriesRepository: ICategoryRepository) { }
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoryRepository,
+  ) { }
 
-  execute(): Category[] {
-    const categories = this.categoriesRepository.list()
+  async execute(): Promise<Category[]> {
+    const categories = await this.categoriesRepository.list()
     return categories
   }
 }

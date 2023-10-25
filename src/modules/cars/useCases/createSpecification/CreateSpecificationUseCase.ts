@@ -1,23 +1,29 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-useless-constructor */
 import { ISpecificationsRepository } from '../../repositories/ISpecificationRepository'
+import { inject, injectable } from 'tsyringe'
 
 interface IRequest {
   name: string
   description: string
 }
 
+@injectable()
 class CreateSpecificationUseCase {
-  constructor(private specificationsRepository: ISpecificationsRepository) { }
-  execute({ description, name }: IRequest): void {
+  constructor(
+    @inject('SpecificationRepository')
+    private specificationsRepository: ISpecificationsRepository,
+  ) { }
+
+  async execute({ description, name }: IRequest): Promise<void> {
     const specificationAlreadyExist =
-      this.specificationsRepository.findByName(name)
+      await this.specificationsRepository.findByName(name)
 
     if (specificationAlreadyExist) {
       throw new Error('Specification already exist!')
     }
 
-    this.specificationsRepository.create({
+    await this.specificationsRepository.create({
       name,
       description,
     })
