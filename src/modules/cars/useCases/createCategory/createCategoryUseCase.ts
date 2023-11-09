@@ -2,6 +2,7 @@
 import { inject, injectable } from 'tsyringe'
 /* eslint-disable no-useless-constructor */
 import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
+import { AppError } from '../../../../errors/AppError'
 
 interface IRequest {
   name: string
@@ -22,7 +23,7 @@ class CreateCategoryUseCase {
     )
 
     if (categoryAlreadyExist) {
-      throw new Error('Category already exist!')
+      throw new AppError('Category already exist!')
     }
 
     this.categoriesRepository.create({ name, description })

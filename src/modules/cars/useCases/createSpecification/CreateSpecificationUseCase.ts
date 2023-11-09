@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-useless-constructor */
+import { AppError } from '../../../../errors/AppError'
 import { ISpecificationsRepository } from '../../repositories/ISpecificationRepository'
 import { inject, injectable } from 'tsyringe'
 
@@ -20,7 +21,7 @@ class CreateSpecificationUseCase {
       await this.specificationsRepository.findByName(name)
 
     if (specificationAlreadyExist) {
-      throw new Error('Specification already exist!')
+      throw new AppError('Specification already exist!')
     }
 
     await this.specificationsRepository.create({
