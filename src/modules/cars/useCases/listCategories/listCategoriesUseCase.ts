@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-useless-constructor */
-import { Category } from '../../entities/category'
+import { Category } from '../../infra/typeorm/entities/category'
 import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
 import { inject, injectable } from 'tsyringe'
 

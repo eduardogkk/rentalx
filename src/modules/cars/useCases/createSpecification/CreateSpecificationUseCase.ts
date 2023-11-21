@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-useless-constructor */
-import { AppError } from '../../../../errors/AppError'
+import { AppError } from '../../../../shared/errors/AppError'
 import { ISpecificationsRepository } from '../../repositories/ISpecificationRepository'
 import { inject, injectable } from 'tsyringe'
 

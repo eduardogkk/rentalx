@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import { NextFunction, Request, Response } from 'express'
 import { verify } from 'jsonwebtoken'
-import { UsersRepository } from '../modules/accounts/repositories/implementations/usersRepository'
-import { AppError } from '../errors/AppError'
+import { AppError } from '../../../errors/AppError'
+import { UsersRepository } from '../../../../modules/accounts/infra/typeorm/repositories/usersRepository'
 
 interface IPayload {
   sub: string

@@ -2,7 +2,7 @@
 import { inject, injectable } from 'tsyringe'
 /* eslint-disable no-useless-constructor */
 import { ICategoryRepository } from '../../repositories/IcategoriesRepository'
-import { AppError } from '../../../../errors/AppError'
+import { AppError } from '../../../../shared/errors/AppError'
 
 interface IRequest {
   name: string
