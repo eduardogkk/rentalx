@@ -2,7 +2,6 @@
 
 **RF**
 deve ser possivel cadastrar um novo carro;
-deve ser possivel listar todas as categorias
 
 **RN**
 não deve ser possivel cadastrar um carro com uma placa ja existente;
