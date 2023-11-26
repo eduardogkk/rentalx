@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-useless-constructor */
 /* eslint-disable camelcase */
-// import { inject, injectable } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 import { AppError } from '../../../../shared/errors/AppError'
 import { Car } from '../../infra/typeorm/entities/cars'
 import { ICarsRepository } from '../../repositories/ICarsRepository'
@@ -16,10 +16,10 @@ interface IRequest {
   category_id: string
 }
 
-// @injectable()
+@injectable()
 class CreateCarUseCase {
   constructor(
-    // @inject('CarsRepository')
+    @inject('CarsRepository')
     private carsRepository: ICarsRepository,
   ) { }
 
