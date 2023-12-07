@@ -26,8 +26,6 @@ describe('List cars', () => {
 
     const cars = await listAvailableCarsUseCase.execute({})
 
-    console.log(cars)
-
     expect(cars).toEqual([car])
   })
   it('should be able to list all available cars by brand', async () => {
