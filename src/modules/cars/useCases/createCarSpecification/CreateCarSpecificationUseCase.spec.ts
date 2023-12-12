@@ -2,16 +2,20 @@
 /* eslint-disable camelcase */
 import { AppError } from '../../../../shared/errors/AppError'
 import { CarsRepositoryInMemory } from '../../repositories/in-memory/CarsRepositoryInMemory'
+import { SpecificationRepositoryInMemory } from '../../repositories/in-memory/SpecificationRepositoryInMemory'
 import { CreateCarSpecificationUseCase } from './CreateCarSpecificationUseCase'
 
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase
 let carsRepositoryInMemory: CarsRepositoryInMemory
+let specificationRepositoryInMemory: SpecificationRepositoryInMemory
 
 describe('Create Car Specification', () => {
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory()
+    specificationRepositoryInMemory = new SpecificationRepositoryInMemory()
     createCarSpecificationUseCase = new CreateCarSpecificationUseCase(
       carsRepositoryInMemory,
+      specificationRepositoryInMemory,
     )
   })
 
@@ -34,11 +38,20 @@ describe('Create Car Specification', () => {
       brand: 'Car_brand_test',
       category_id: 'category_id',
     })
-    const specification_id = ['54321']
 
-    await createCarSpecificationUseCase.execute({
+    const specification = await specificationRepositoryInMemory.create({
+      name: 'test',
+      description: 'test',
+    })
+
+    const specification_id = [specification.id]
+
+    const specificationsCars = await createCarSpecificationUseCase.execute({
       car_id: car.id,
       specification_id,
     })
+
+    expect(specificationsCars).toHaveProperty('specifications')
+    expect(specificationsCars.specifications.length).toBe(1)
   })
 })

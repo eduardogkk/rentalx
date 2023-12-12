@@ -1,3 +1,17 @@
+{
+	"name": "UsuarioTeste",
+	"email": "usuario@teste.com",
+	"password": "ut1234",
+	"driver_license": "XXXXXX"
+}
+
+{
+	"name": "UsuarioAdmin",
+	"email": "admin@admin.com",
+	"password": "adm1234",
+	"driver_license": "XXXXXX"
+}
+
 # cadastro de carro
 
 **RF**
