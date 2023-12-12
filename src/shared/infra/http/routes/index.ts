@@ -10,8 +10,8 @@ const router = Router()
 
 router.use('/categories', categoriesRoutes)
 router.use('/specifications', specificationRoutes)
-router.use('/user', usersRoutes)
+router.use('/users', usersRoutes)
 router.use(authenticateRoutes)
-router.use('/car', carsRoutes)
+router.use('/cars', carsRoutes)
 
 export { router }
