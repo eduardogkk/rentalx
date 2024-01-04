@@ -7,8 +7,8 @@
 
 {
 	"name": "UsuarioAdmin",
-	"email": "admin@admin.com",
-	"password": "adm1234",
+	"email": "admin@rentalx.com.br",
+	"password": "admin",
 	"driver_license": "XXXXXX"
 }
 
