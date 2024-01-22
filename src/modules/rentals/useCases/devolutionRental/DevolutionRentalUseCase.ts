@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable camelcase */
 
-import { inject } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 import { IRentalsRepository } from '../../repositories/IRentalsRepository'
 import { ICarsRepository } from '../../../cars/repositories/ICarsRepository'
 import { AppError } from '../../../../shared/errors/AppError'
@@ -13,6 +13,7 @@ interface IRequest {
   user_id: string
 }
 
+@injectable()
 class DevolutionRentalUseCase {
   constructor(
     @inject('RentalsRepository')
