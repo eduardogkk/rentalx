@@ -13,3 +13,5 @@ class ListRentalsByUserController {
     return response.status(200).json(rentals)
   }
 }
+
+export { ListRentalsByUserController }
