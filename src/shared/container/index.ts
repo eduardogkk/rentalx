@@ -12,6 +12,8 @@ import { ICarsImagesRepository } from '../../modules/cars/repositories/ICarsImag
 import { CarsImagesRepository } from '../../modules/cars/infra/typeorm/repositories/CarsImagesRepository'
 import { IRentalsRepository } from '../../modules/rentals/repositories/IRentalsRepository'
 import { RentalsRepository } from '../../modules/rentals/infra/typeorm/repositories/RentalsRepository'
+import { IUserTokensRepository } from '../../modules/accounts/repositories/IUserTokensRepository'
+import { UserTokensRepository } from '../../modules/accounts/infra/typeorm/repositories/UserTokensRepository'
 
 container.registerSingleton<ICategoryRepository>(
   'CategoriesRepository',
@@ -38,4 +40,9 @@ container.registerSingleton<ICarsImagesRepository>(
 container.registerSingleton<IRentalsRepository>(
   'RentalsRepository',
   RentalsRepository,
+)
+
+container.registerSingleton<IUserTokensRepository>(
+  'UserTokensRepository',
+  UserTokensRepository
 )
