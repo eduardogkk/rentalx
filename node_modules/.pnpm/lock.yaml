@@ -64,6 +64,9 @@ devDependencies:
   '@types/multer':
     specifier: ^1.4.8
     version: 1.4.8
+  '@types/nodemailer':
+    specifier: ^6.4.14
+    version: 6.4.14
   '@types/supertest':
     specifier: ^6.0.2
     version: 6.0.2
@@ -995,6 +998,12 @@ packages:
     resolution: {integrity: sha512-ZVPnqU58giiCjSxjVUESDtdPk4QR5WQhhINbc9UBrKLU68MX5BF6kbQzTrkwbolyr0X8ChBpXfavr5mZFKZQ5A==}
     dependencies:
       undici-types: 5.25.3
+    dev: true
+
+  /@types/nodemailer@6.4.14:
+    resolution: {integrity: sha512-fUWthHO9k9DSdPCSPRqcu6TWhYyxTBg382vlNIttSe9M7XfsT06y0f24KHXtbnijPGGRIcVvdKHTNikOI6qiHA==}
+    dependencies:
+      '@types/node': 20.8.4
     dev: true
 
   /@types/qs@6.9.8:
