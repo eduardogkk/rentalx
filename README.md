@@ -1,7 +1,7 @@
 {
 	"name": "UsuarioTeste",
 	"email": "usuario@teste.com",
-	"password": "ut1234",
+	"password": "teste1234",
 	"driver_license": "XXXXXX"
 }
 
