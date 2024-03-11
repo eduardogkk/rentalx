@@ -7,6 +7,7 @@ import swaggerFile from '../../../swagger.json'
 import createConnection from '../typeorm'
 import '../../container'
 import { AppError } from '../../errors/AppError'
+import "dotenv/config"
 
 createConnection()
 const app = express()
